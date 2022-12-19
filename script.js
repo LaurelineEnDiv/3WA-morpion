@@ -1,4 +1,3 @@
-
 // DOM Element
 // on Click
 // ["", "", ""] notre jeu
@@ -8,32 +7,40 @@
 // function changer de joueur
 
 
-document.addEventListener("DOMContentLoaded", ()=> {
-    
+document.addEventListener("DOMContentLoaded", () => {
+
     const box = document.querySelectorAll(".container>div")
     let player = document.getElementById("player")
     const again = document.querySelector("button")
-    
+
     const game = ["", "", ""]
     let nbClick = 0
-    
-    for (let i = 0; i<box.length; i++) {
-        
+
+    for (let i = 0; i < box.length; i++) {
+
         box[i].addEventListener("click", () => {
             nbClick++;
             if (nbClick % 2 === 1) {
                 player.innerText = "O, à vous de jouer"
                 box[i].innerText = "O"
-                
+
             }
-            
+
             else {
                 player.innerText = "X, à vous de jouer"
                 box[i].innerText = "X"
             }
         })
-        
+
     }
-    
+
+    // fonction pour relancer le jeu
+
+    box.forEach(function(element) {
+        again.addEventListener("click", () => {
+            element.innerText = " "
+        })
+    });
+
+
 })
-    
